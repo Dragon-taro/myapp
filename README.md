@@ -5,6 +5,7 @@ git clone https://github.com/Dragon-taro/myapp.git
 cd myapp
 docker-compose build
 docker-compose up
+docker-compose run rails rails db:create
 ```
 http://127.0.0.1/ にアクセス
 
