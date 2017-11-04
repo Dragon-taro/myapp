@@ -1,24 +1,14 @@
-# README
+# 使い方
+docker for mac をインストールしてから、以下のコマンドを実行
+```
+git clone https://github.com/Dragon-taro/myapp.git
+cd myapp
+docker-compose build
+docker-compose up
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# rails containerが起動しないとき
+```
+rm -f app/tmp/pids/server.pid
+```
+それか手動で削除
