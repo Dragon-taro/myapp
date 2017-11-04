@@ -6,6 +6,7 @@ cd myapp
 docker-compose build
 docker-compose up
 ```
+http://127.0.0.1/ にアクセス
 
 # rails containerが起動しないとき
 ```
