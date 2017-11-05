@@ -12,7 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-containers_data/*
+containers_data/nginx/*
 
 # Ignore Byebug command history file.
 .byebug_history
