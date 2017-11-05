@@ -4,6 +4,7 @@ docker for mac をインストールしてから、以下のコマンドを実�
 git clone https://github.com/Dragon-taro/myapp.git
 cd myapp
 docker-compose build
+# buildは結構時間かかる
 docker-compose up
 docker-compose run rails rails db:create
 ```
