@@ -37,3 +37,4 @@
 172.20.0.1 - - [05/Nov/2017:07:01:03 +0000] "GET /favicon.ico HTTP/1.1" 200 0 "http://127.0.0.1/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36" "-"
 172.20.0.1 - - [05/Nov/2017:07:04:31 +0000] "GET / HTTP/1.1" 200 825 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36" "-"
 172.20.0.1 - - [05/Nov/2017:07:04:31 +0000] "GET /favicon.ico HTTP/1.1" 200 0 "http://127.0.0.1/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36" "-"
+172.20.0.1 - - [05/Nov/2017:12:58:23 +0000] "GET / HTTP/1.1" 200 824 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36" "-"

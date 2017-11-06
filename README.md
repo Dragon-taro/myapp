@@ -12,6 +12,6 @@ http://127.0.0.1/ にアクセス
 
 # rails containerが起動しないとき
 ```
-rm -f app/tmp/pids/server.pid
+rm -f ./tmp/pids/server.pid
 ```
 それか手動で削除
