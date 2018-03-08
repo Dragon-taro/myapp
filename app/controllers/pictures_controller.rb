@@ -8,7 +8,7 @@ class PicturesController < ApplicationController
   end
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.limit(5)
   end
 
   private

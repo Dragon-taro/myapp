@@ -1,4 +1,4 @@
-<div class="titleWrapper" style="background-image:url(<%= asset_path "background.png" %>)">
+<div class="titleWrapper top" style="background-image:url(<%= asset_path "background.png" %>)">
   <div class="backgroundOverRay">
     <h1>Leoparadise</h1>
     <p>
@@ -9,28 +9,9 @@
   </div>
 </div>
 
-<div class="menu">
-  <ul>
-    <li><a href="#">home</a></li>
-    <li><a href="#">about</a></li>
-    <li><a href="#">gallery</a></li>
-  </ul>
-</div>
+<%= render 'partial/header_menu' %>
 
 <div class="main">
   <div id="dropzone"></div>
 </div>
-
-<footer>
-  <h3>Leoparadise</h2>
-  <ul>
-    <li>田中潤一</li>
-    <li>星牟禮健也</li>
-    <li>高橋剛</li>
-    <li>宮川竜太朗</li>
-  </ul>
-  <div class="copy">
-    <p>このアプリはTRUNK HACKATHON（3.8〜3.9）で徹夜で作成したアプリです。</p>
-    <p>© ほぼ高専BOYS</p>
-  </div>
-</footer>
+<%= javascript_pack_tag 'hello_react' %>

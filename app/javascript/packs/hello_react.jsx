@@ -9,11 +9,6 @@ class DemoZone extends React.Component {
     this.state={picture: ''}
   }
 
-  componentDidMount() {
-    const url = "https://bitflyer.jp/api/echo/price"
-    fetch(url).then(res => console.log(res)).catch(error => console.error(error))
-  }
-
   onDrop(params) {
     const url = "/pictures"
     const form_data = new FormData()
