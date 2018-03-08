@@ -1,13 +1,14 @@
 {
   "dependencies": {
-    "@rails/webpacker": "^3.2.0",
+    "@rails/webpacker": "^3.3.0",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-dropzone": "^4.2.9"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.9.7"
+    "webpack-dev-server": "^3.1.0"
   }
 }

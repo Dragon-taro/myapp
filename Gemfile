@@ -51,3 +51,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #frontのbuild
 gem 'webpacker', '~> 3.0'
+
+gem 'carrierwave'
+gem 'rmagick'
+gem 'mime-types', '3.1'
