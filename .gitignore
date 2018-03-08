@@ -19,3 +19,4 @@ containers_data/nginx/*
 /public/packs
 /public/packs-test
 /node_modules
+*.log
