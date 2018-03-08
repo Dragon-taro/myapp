@@ -2,16 +2,6 @@ import React from "react";
 import ReactDom from "react-dom";
 import Dropzone from "react-dropzone";
 
-const STYLE = {
-  border: '2px solid #cecece',
-}
-
-const ACTIVE_STYLE = {
-  border: '2px solid #60c31d',
-  transition: 'all .2s',
-  cursor: 'pointer',
-}
-
 export default class ImgDnDzone extends React.Component {
 
   constructor(props){
@@ -31,9 +21,8 @@ export default class ImgDnDzone extends React.Component {
     return(
       <Dropzone
         onDrop={this.onDrop}
-        style={STYLE}
-        activeStyle={ACTIVE_STYLE}
         className={this.props.className}
+        style={{}}
       >
         <p>
           画像をドラッグ＆ドロップ <br />

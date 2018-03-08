@@ -1,0 +1,11 @@
+<div>
+  <h1>ギャラリー</h1>
+  <ul>
+    <% @pictures.each do |picture| %>
+      <li>
+        <img src="<%= picture.image.url %>">
+        <img src="<%= picture.converted_picture&.image&.url || "" %>">
+      </li>
+    <% end %>
+  </ul>
+</div>

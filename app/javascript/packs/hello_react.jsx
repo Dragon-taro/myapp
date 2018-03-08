@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import ImgDnDzone from './ImgDnDzone'
 
-class GetData extends React.Component {
+class DemoZone extends React.Component {
   constructor() {
     super();
     this.state={picture: ''}
@@ -26,7 +26,9 @@ class GetData extends React.Component {
       processData : false,
       contentType : false,
       success: (data) => {
-        this.setState({picture: data.image_url})
+        this.setState({picture: data.image_url}, () => {
+          $("html,body").animate({scrollTop:$('#jsResult').offset().top});
+        })
       },
       error: (xhr, status, err) => {
         console.error(url, status, err.toString());
@@ -36,9 +38,29 @@ class GetData extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="imageDropzone">
         <ImgDnDzone onDrop={this.onDrop.bind(this)} />
-        <img src={this.state.picture} />
+        {
+          (() => {
+              if (this.state.picture) {
+                return(
+                  <section>
+                    <h2 id="jsResult">Result</h2>
+                    <ul className="resultIinner">
+                      <li>
+                        <h3>Before</h3>
+                          <img src={this.state.picture} />
+                      </li>
+                      <li>
+                        <h3>After</h3>
+                          <img src={this.state.picture} />
+                      </li>
+                    </ul>
+                  </section>
+                )
+              }
+            })()
+        }
       </div>
     )
   }
@@ -46,7 +68,11 @@ class GetData extends React.Component {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <GetData name="React" />,
-    document.body.appendChild(document.createElement('div')),
+    <div>
+      <h2>Demonstration</h2>
+      <p>下の園の中にドラッグ＆ドロップするとその写真を元にしたヒョウ柄の写真が生成されます。</p>
+      <DemoZone name="React" />
+    </div>,
+    document.getElementById("dropzone"),
   )
 })
