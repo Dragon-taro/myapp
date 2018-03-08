@@ -1,0 +1,2 @@
+module ConvertedPicturesHelper
+end

@@ -36,9 +36,9 @@ h2 {
     p {
       color: #fff;
       text-align: center;
-      width: 600px;
+      width: 630px;
       line-height: 1.8;
-      font-size: 18px;
+      font-size: 16px;
       animation: fadeIn 2s ease 0s 1 normal;
       -webkit-animation: fadeIn 2s ease 0s 1 normal;
     }
@@ -50,7 +50,7 @@ h2 {
       height: 660px;
       h1 {
         margin: 320px 0 45px 0;
-        width: 600px;
+        width: 630px;
       }
     }
   }
@@ -142,6 +142,78 @@ h2 {
     padding-bottom: 60px;
     padding-top: 30px;
     border-bottom: 1px solid #ddd;
+  }
+}
+
+.shirtsZone {
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 60px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  p {
+    margin-bottom: 45px;
+    padding: 30px;
+    border-bottom: 1px solid #ddd;
+  }
+  .shirts {
+    padding: 30px;
+    width: 400px;
+    position: relative;
+    margin: 0 auto;
+    img.shirts_img {
+      width: 400px;
+    }
+    img.hyo {
+      position: absolute;
+      top: 158px;
+      left: 148px;
+      width: 160px;
+    }
+    span {
+      position: absolute;
+      top: 268px;
+      left: 248px;
+      font-size: 10px;
+    }
+  }
+  .buttonWrapper {
+    display: flex;
+    justify-content: center;
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 3px;
+      margin-top: 15px;
+      margin-bottom: 60px;
+      color: #f6f6f6;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+      background-color: #1FBCD3;
+        transition-duration: .3s;
+      &:hover {
+        cursor: pointer;
+        background-color: #79D7E5;
+      }
+      a {
+        color: #f6f6f6;
+        text-decoration: none;
+      }
+      #loader {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 8px solid #fff;
+        border-right-color: transparent;
+        animation: spin 1s linear infinite;
+        margin: 0 25px;
+      }
+      @keyframes spin
+      {
+        0% { transform: rotate(0deg);   opacity: 0.2; } /*0%の時は20％の透明度*/
+        50%  { transform: rotate(180deg); opacity: 1.0; } /*50%の時は透明度なし*/
+        100%   { transform: rotate(360deg); opacity: 0.2; } /*100%の時に20％の透明度に戻る*/
+      }
+    }
   }
 }
 
