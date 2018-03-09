@@ -55,6 +55,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    curb (0.9.4)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -91,6 +92,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     puma (3.11.3)
     rack (2.0.4)
+    rack-cors (1.0.2)
     rack-proxy (0.6.4)
       rack
     rack-test (0.6.3)
@@ -176,12 +178,14 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.2)
+  curb
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   mime-types (= 3.1)
   mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.0)
+  rack-cors
   rails (= 5.1.1)
   rmagick
   sass-rails (~> 5.0)

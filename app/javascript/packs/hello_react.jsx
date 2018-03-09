@@ -34,25 +34,67 @@ class DemoZone extends React.Component {
   }
 
   onDrop(params) {
-    const url = "/pictures"
+
     const form_data = new FormData()
     form_data.append('image', params.file)
+    const picture_url = "/pictures"
+
+    // railsに元の画像を保存
     $.ajax({
-      url      : url,
+      url      : picture_url,
       data     : form_data,
-      dataType : 'json',
       type     : 'POST',
+      dataType : 'json',
       processData : false,
       contentType : false,
       success: (data) => {
-        this.setState(data, () => {
-          $("html,body").animate({scrollTop:$('#jsResult').offset().top});
-        })
+        this.setState(data)
       },
       error: (xhr, status, err) => {
         console.error(url, status, err.toString());
       },
     });
+
+
+    // const api_url = "http://35.190.148.183:8000/cnn/"
+    // // apiにリクエストを送る
+    // $.ajax({
+    //   url      : api_url,
+    //   data     : form_data,
+    //   crossDomain: true,
+    //   json     : "json",
+    //   type     : 'POST',
+    //   processData : false,
+    //   contentType : false,
+    //
+    //   success: (data) => {
+    //     const coverted_picture_url = "/converted_pictures"
+    //     // 変換後の画像をrails保存
+    //     $.ajax({
+    //       url      : coverted_picture_url,
+    //       data     : data,
+    //       type     : 'POST',
+    //       dataType : 'json',
+    //       processData : false,
+    //       contentType : false,
+    //       success: (data) => {
+    //         this.setState(data, () => {
+    //           $("html,body").animate({scrollTop:$('#jsResult').offset().top});
+    //         })
+    //       },
+    //       error: (xhr, status, err) => {
+    //         console.error(url, status, err.toString());
+    //       },
+    //     });
+    //
+    //   },
+    //
+    //   error: (xhr, status, err) => {
+    //     console.error(url, status, err.toString());
+    //   },
+    // });
+    //
+
   }
 
   onClick() {
@@ -84,6 +126,7 @@ class DemoZone extends React.Component {
             }
         }
     });
+
   }
 
   render() {
