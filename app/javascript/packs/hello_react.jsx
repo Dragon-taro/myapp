@@ -25,76 +25,22 @@ class DemoZone extends React.Component {
     super();
     this.state={
       image_url: '',
-      is_load: false
+      is_load: false,
+      is_dropped: false,
+      is_result_load: false,
     }
   }
 
   componentDidMount() {
-
+    
   }
 
   onDrop(params) {
-
-    const form_data = new FormData()
-    form_data.append('image', params.file)
-    const picture_url = "/pictures"
-
-    // railsに元の画像を保存
-    $.ajax({
-      url      : picture_url,
-      data     : form_data,
-      type     : 'POST',
-      dataType : 'json',
-      processData : false,
-      contentType : false,
-      success: (data) => {
-        this.setState(data)
-      },
-      error: (xhr, status, err) => {
-        console.error(url, status, err.toString());
-      },
-    });
-
-
-    // const api_url = "http://35.190.148.183:8000/cnn/"
-    // // apiにリクエストを送る
-    // $.ajax({
-    //   url      : api_url,
-    //   data     : form_data,
-    //   crossDomain: true,
-    //   json     : "json",
-    //   type     : 'POST',
-    //   processData : false,
-    //   contentType : false,
-    //
-    //   success: (data) => {
-    //     const coverted_picture_url = "/converted_pictures"
-    //     // 変換後の画像をrails保存
-    //     $.ajax({
-    //       url      : coverted_picture_url,
-    //       data     : data,
-    //       type     : 'POST',
-    //       dataType : 'json',
-    //       processData : false,
-    //       contentType : false,
-    //       success: (data) => {
-    //         this.setState(data, () => {
-    //           $("html,body").animate({scrollTop:$('#jsResult').offset().top});
-    //         })
-    //       },
-    //       error: (xhr, status, err) => {
-    //         console.error(url, status, err.toString());
-    //       },
-    //     });
-    //
-    //   },
-    //
-    //   error: (xhr, status, err) => {
-    //     console.error(url, status, err.toString());
-    //   },
-    // });
-    //
-
+    this.setState({is_result_load: true}, () => {
+      setTimeout(() => {
+        this.setState({is_dropped: true, is_result_load: true}, 6232)
+      })
+    })
   }
 
   onClick() {
@@ -133,9 +79,14 @@ class DemoZone extends React.Component {
     return(
       <div className="imageDropzone">
         <ImgDnDzone onDrop={this.onDrop.bind(this)} />
+          {(() => {
+            if (this.state.is_result_load) {
+              return <div className="button"><div id="loader"></div></div>
+            }
+          })()}
         {
           (() => {
-              if (this.state.image_url) {
+              if (this.state.is_dropped) {
                 return(
                   <section>
                     <h2 id="jsResult">Result</h2>
