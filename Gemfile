@@ -58,3 +58,8 @@ gem 'webpacker', '~> 3.0'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mime-types', '3.1'
+
+gem 'devise'
+#omniauth
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
