@@ -10,8 +10,8 @@ class DemoZone extends React.Component {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <div>
-      
+      hello
     </div>,
-    document.getElementById("dropzone"),
+    document.getElementById("root"),
   )
 })
