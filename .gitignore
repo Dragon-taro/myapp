@@ -26,5 +26,4 @@ containers_data/nginx/*
 yarn-debug.log*
 .yarn-integrity
 /public/uploads/*
-
 /db
