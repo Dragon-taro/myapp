@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:twitter]
 
   has_many :skills
+  has_many :messages
 
   # N:Nの自己結合
   has_many :follows_from, class_name: Follow, foreign_key: :from_user_id, dependent: :destroy
