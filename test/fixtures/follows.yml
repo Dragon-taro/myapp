@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_accept: false
+  from_user_id: 1
+  to_user_id: 1
+
+two:
+  is_accept: false
+  from_user_id: 1
+  to_user_id: 1
