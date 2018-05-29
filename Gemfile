@@ -63,3 +63,6 @@ gem 'devise'
 #omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+
+gem "js-routes"
+gem 'gon'
