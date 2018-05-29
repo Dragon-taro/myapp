@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import {If} from './If'
+import EditZone from './EditZone'
 
 
 class EditOrShowUser extends React.Component {
@@ -9,8 +9,6 @@ class EditOrShowUser extends React.Component {
     super()
     this.state={
       user: {},
-      isEditMode: false,
-      value: '',
     }
   }
 
@@ -33,21 +31,19 @@ class EditOrShowUser extends React.Component {
     this.setState({isEditMode: true})
   }
 
-  handleChange(e) {
-    this.setState({value: e.target.value})
+  handleChange(key_value) {
+    this.setState({user: {...this.state.user, ...key_value}})
   }
 
   handleSave() {
     const url = Routes.user_path(gon.user_id)
-    const params = {name: this.state.value}
-    this.setState()
     $.ajax({
       url      : url,
       dataType : 'json',
       type     : 'PUT',
-      data     : {user: params},
+      data     : {user: this.state.user},
       success: (data) => {
-        this.setState({isEditMode: false, ...data})
+        this.setState(data)
       },
       error: (xhr, status, err) => {
         console.error(url, status, err.toString());
@@ -58,20 +54,30 @@ class EditOrShowUser extends React.Component {
   render() {
     return (
       <div>
-        <If condition={!this.state.isEditMode} >
-          <div>
-            <h2>{this.state.user.name}</h2>
-            <If condition={this.state.is_current_user}>
-              <button onClick={this.editMode.bind(this)}>編集</button>
-            </If>
-          </div>
-        </If>
-        <If condition={this.state.isEditMode} >
-          <div>
-            <h2><input type='text' value={this.state.value} onChange={this.handleChange.bind(this)} /></h2>
-            <button onClick={this.handleSave.bind(this)}>保存</button>
-          </div>
-        </If>
+        <img src={this.state.user.image} />
+        <h2>
+          <EditZone {...this.state} name='name' value={this.state.user.name} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='text'/>
+        </h2>
+
+        <ul>
+          <li>
+            <div>
+              自己紹介
+            </div>
+            <div>
+              <EditZone {...this.state} name='description' value={this.state.user.description} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              目標
+            </div>
+            <div>
+              <EditZone {...this.state} name='goal' value={this.state.user.goal} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
+            </div>
+          </li>
+        </ul>
       </div>
     )
   }

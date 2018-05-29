@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180528082816) do
+ActiveRecord::Schema.define(version: 20180529080254) do
 
   create_table "follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "is_accept"
@@ -51,6 +51,10 @@ ActiveRecord::Schema.define(version: 20180528082816) do
     t.string "uid"
     t.string "name"
     t.string "username"
+    t.text "description"
+    t.text "goal"
+    t.text "image"
+    t.boolean "is_master"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

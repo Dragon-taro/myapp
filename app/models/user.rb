@@ -19,6 +19,9 @@ class User < ApplicationRecord
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.username = auth["info"]["nickname"]
+      user.name = auth["info"]["name"]
+      user.description = auth["info"]["description"]
+      user.image = auth["info"]["image"]
       user.email = User.dummy_email(auth)
       user.password = Devise.friendly_token[0, 20]
     end
