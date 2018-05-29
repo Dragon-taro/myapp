@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import EditZone from './EditZone'
+import SkillEditZone from './SkillEditZone'
 
 
 class EditOrShowUser extends React.Component {
@@ -41,7 +43,7 @@ class EditOrShowUser extends React.Component {
       url      : url,
       dataType : 'json',
       type     : 'PUT',
-      data     : {user: this.state.user},
+      data     : {user: {...this.state.user, skills_attributes: this.state.skills}},
       success: (data) => {
         this.setState(data)
       },
@@ -51,7 +53,36 @@ class EditOrShowUser extends React.Component {
     })
   }
 
+  handleSkillChange(key_value, id) {
+    const skills = this.state.skills.map(skill => {
+      if (skill.id == id) {
+        return _.merge(skill, key_value)
+      }
+      return skill
+    })
+    this.setState(skills: skills)
+  }
+
+  addSkill() {
+    this.setState({skills: this.state.skills.concat({language: '', description: ''})}, () => {
+      this.handleSave()
+    })
+  }
+
   render() {
+    const skillNode = this.state.skills ? this.state.skills.map(skill => {
+      return (
+        <li key={skill.id}>
+          <SkillEditZone
+            {...this.state}
+            {...skill}
+            handleSave={this.handleSave.bind(this)}
+            onChange={this.handleSkillChange.bind(this)}
+          />
+        </li>
+      )
+    }) : null
+
     return (
       <div>
         <img src={this.state.user.image} />
@@ -75,6 +106,18 @@ class EditOrShowUser extends React.Component {
             </div>
             <div>
               <EditZone {...this.state} name='goal' value={this.state.user.goal} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              スキル
+            </div>
+            <div>
+              <ul>
+                {skillNode}
+              </ul>
+              <button onClick={this.addSkill.bind(this)}>スキルを追加</button>
             </div>
           </li>
         </ul>

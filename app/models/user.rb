@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :skills
   has_many :messages
 
+  accepts_nested_attributes_for :skills, allow_destroy: true
+
   # N:Nの自己結合
   has_many :follows_from, class_name: Follow, foreign_key: :from_user_id, dependent: :destroy
   has_many :follows_to,   class_name: Follow, foreign_key: :to_user_id,   dependent: :destroy

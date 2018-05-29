@@ -79,3 +79,4 @@
 172.20.0.1 - - [20/Dec/2017:07:37:28 +0000] "GET /packs/hello_react-ae4defdab8285a6ced20.js HTTP/1.1" 200 650445 "http://127.0.0.1/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" "-"
 172.20.0.1 - - [20/Dec/2017:07:37:28 +0000] "GET /packs/hello_react-ae4defdab8285a6ced20.js.map HTTP/1.1" 200 756126 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" "-"
 >>>>>>> origin/test-webpacker
+172.18.0.1 - - [29/May/2018:10:20:06 +0000] "GET /packs/EditLandingPage-bd3dfbb466a5e9d1bece.js.map HTTP/1.1" 404 16306 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36" "-"

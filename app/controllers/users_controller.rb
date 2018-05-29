@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :description, :is_master, :goal)
+    params.require(:user).permit(:name, :email, :password, :description, :is_master, :goal, skills_attributes: [:description, :language, :id])
   end
 
   def set_is_current_user
