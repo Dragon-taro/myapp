@@ -39,7 +39,13 @@ class User < ApplicationRecord
     end
   end
 
-  private
+  def master_count
+    master.length
+  end
+
+  def disciple_count
+    disciple.length
+  end
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"

@@ -34,7 +34,10 @@ class SkillEditZone extends React.Component {
             <span>{this.props.language}</span>
             <span>{this.props.description}</span>
             <If condition={this.props.is_current_user}>
-              <button onClick={this.editMode.bind(this)}>編集</button>
+              <div>
+                <button onClick={this.editMode.bind(this)}>編集</button>
+                <button onClick={this.props.handleDelete}>削除</button>
+              </div>
             </If>
           </div>
         </If>

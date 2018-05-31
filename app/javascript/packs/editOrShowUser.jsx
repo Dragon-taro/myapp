@@ -53,6 +53,12 @@ class EditOrShowUser extends React.Component {
     })
   }
 
+  addSkill() {
+    this.setState({skills: this.state.skills.concat({language: '', description: ''})}, () => {
+      this.handleSave()
+    })
+  }
+
   handleSkillChange(key_value, id) {
     const skills = this.state.skills.map(skill => {
       if (skill.id == id) {
@@ -60,11 +66,23 @@ class EditOrShowUser extends React.Component {
       }
       return skill
     })
-    this.setState(skills: skills)
+    this.setState({skills: skills})
   }
 
-  addSkill() {
-    this.setState({skills: this.state.skills.concat({language: '', description: ''})}, () => {
+  handleDelete(id) {
+    const skills = this.state.skills.map(skill => {
+      if (skill.id == id) {
+        return _.merge(skill, {_destroy: -1})
+      }
+      return skill
+    })
+    this.setState({skills: skills}, () => {
+      this.handleSave()
+    })
+  }
+
+  handleMaster(e) {
+    this.setState({user: {...this.state.user, is_master: e.target.checked}}, () => {
       this.handleSave()
     })
   }
@@ -77,6 +95,7 @@ class EditOrShowUser extends React.Component {
             {...this.state}
             {...skill}
             handleSave={this.handleSave.bind(this)}
+            handleDelete={this.handleDelete.bind(this, skill.id)}
             onChange={this.handleSkillChange.bind(this)}
           />
         </li>
@@ -85,10 +104,17 @@ class EditOrShowUser extends React.Component {
 
     return (
       <div>
-        <img src={this.state.user.image} />
         <h2>
+          <img src={this.state.user.image} />
           <EditZone {...this.state} name='name' value={this.state.user.name} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='text'/>
         </h2>
+
+        <div>
+          <ul>
+            <li>師匠 {this.state.user.master_count}</li>
+            <li>弟子 {this.state.user.disciple_count}</li>
+          </ul>
+        </div>
 
         <ul>
           <li>
@@ -120,6 +146,10 @@ class EditOrShowUser extends React.Component {
               <button onClick={this.addSkill.bind(this)}>スキルを追加</button>
             </div>
           </li>
+          <label>
+            <input name='is_master' type='checkbox' checked={this.state.user.is_master} onChange={this.handleMaster.bind(this)} />
+            弟子を受け入れる（ここにチェックを入れると、師匠一覧ページに表示されます。）
+          </label>
         </ul>
       </div>
     )
