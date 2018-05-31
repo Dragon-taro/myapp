@@ -23,7 +23,10 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.all.where(search_params)
+    @users = User.all
+    @users = @users.where(id: params[:id]) if params[:id].present?
+    @users = @users.where('users.name like ?', "%#{params[:name]}%") if params[:name].present?
+    @users = @users.where(id: Skill.where(language: params[:skill]).pluck(:user_id)) if params[:skill].present?
   end
 
   private
@@ -34,10 +37,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :description, :is_master, :goal, skills_attributes: [:id, :description, :language, :_destroy])
-  end
-
-  def search_params
-    params.permit(:id)
   end
 
   def set_is_current_user

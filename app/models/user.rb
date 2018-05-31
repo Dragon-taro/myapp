@@ -51,4 +51,8 @@ class User < ApplicationRecord
     "#{auth.uid}-#{auth.provider}@example.com"
   end
 
+  def skill_list
+    skills.pluck(:language)
+  end
+
 end
