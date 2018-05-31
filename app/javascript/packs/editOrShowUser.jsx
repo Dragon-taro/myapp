@@ -87,6 +87,23 @@ class EditOrShowUser extends React.Component {
     })
   }
 
+  requestMaster() {
+    const params = {to_user_id: this.state.user.id, from_user_id: this.state.current_user.id}
+    const url = Routes.follows_path()
+    $.ajax({
+      url      : url,
+      dataType : 'json',
+      type     : 'POST',
+      data     : {follows: params},
+      success: (data) => {
+        console.log(data);
+      },
+      error: (xhr, status, err) => {
+        console.error(url, status, err.toString());
+      },
+    })
+  }
+
   render() {
     const skillNode = this.state.skills ? this.state.skills.map(skill => {
       return (
@@ -151,6 +168,7 @@ class EditOrShowUser extends React.Component {
             弟子を受け入れる（ここにチェックを入れると、師匠一覧ページに表示されます。）
           </label>
         </ul>
+         <button onClick={this.requestMaster.bind(this)}>弟子入り申請</button>
       </div>
     )
   }
