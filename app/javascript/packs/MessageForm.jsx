@@ -18,7 +18,7 @@ class MessageForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.handleSubmit({this.state})
+    this.props.handleSubmit(this.state)
   }
 
   render() {
@@ -31,9 +31,4 @@ class MessageForm extends React.Component {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <MessageForm />,
-    document.getElementById("MessageForm"),
-  )
-})
+export default MessageForm

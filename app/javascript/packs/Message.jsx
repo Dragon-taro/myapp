@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SearchZone from './SearchZone'
+import MessageForm from './MessageForm'
 import {If} from './If'
 
 function getParams() {
@@ -25,15 +26,16 @@ class Message extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData('GET')
   }
 
-  loadData() {
+  loadData(type, key_value=null) {
     const url = Routes.messages_path({opponent_user: gon.opponent_user})
     $.ajax({
       url      : url,
       dataType : 'json',
-      type     : 'GET',
+      type     : type,
+      data     : key_value,
       success: (data) => {
         this.setState(data)
       },
@@ -41,6 +43,10 @@ class Message extends React.Component {
         console.error(url, status, err.toString());
       },
     })
+  }
+z
+  handleSubmit(key_value, id) {
+    this.loadData('POST', key_value, id)
   }
 
   render() {
