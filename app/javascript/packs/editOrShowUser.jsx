@@ -11,6 +11,7 @@ class EditOrShowUser extends React.Component {
     super()
     this.state={
       user: {},
+      no_accepted_disciple: [],
     }
   }
 
@@ -87,13 +88,11 @@ class EditOrShowUser extends React.Component {
     })
   }
 
-  requestMaster() {
-    const params = {to_user_id: this.state.user.id, from_user_id: this.state.current_user.id}
-    const url = Routes.follows_path()
+  ajax(url, params, type) {
     $.ajax({
       url      : url,
       dataType : 'json',
-      type     : 'POST',
+      type     : type,
       data     : {follows: params},
       success: (data) => {
         console.log(data);
@@ -102,6 +101,20 @@ class EditOrShowUser extends React.Component {
         console.error(url, status, err.toString());
       },
     })
+  }
+
+  requestMaster() {
+    const url = Routes.follows_path()
+    const params = {to_user_id: this.state.user.id, from_user_id: this.state.current_user.id}
+    const type = 'POST'
+    this.ajax(url, params, type)
+  }
+
+  acceptDisciple(id) {
+    const url = Routes.follows_update_path()
+    const params = {to_user_id: this.state.user.id, from_user_id: id}
+    const type = 'PUT'
+    this.ajax(url, params, type)
   }
 
   render() {
@@ -118,6 +131,10 @@ class EditOrShowUser extends React.Component {
         </li>
       )
     }) : null
+
+    const noAcceptedDisciple = this.state.no_accepted_disciple.map(dis => {
+      return <li key={dis.id}><img src={dis.image} />{dis.name}<button onClick={this.acceptDisciple.bind(this, dis.id)}>承認</button></li>
+    })
 
     return (
       <div>
@@ -168,7 +185,10 @@ class EditOrShowUser extends React.Component {
             弟子を受け入れる（ここにチェックを入れると、師匠一覧ページに表示されます。）
           </label>
         </ul>
-         <button onClick={this.requestMaster.bind(this)}>弟子入り申請</button>
+        <button onClick={this.requestMaster.bind(this)}>弟子入り申請</button>
+        <ul>
+          {noAcceptedDisciple}
+        </ul>
       </div>
     )
   }

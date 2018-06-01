@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   resources :users, only: [:show, :update]
-  resources :follows, only: [:create, :update]
+  resources :follows, only: [:create]
+  put 'follows/update' => 'follows#update'
   get 'masters' => 'users#index'
   get 'masters/search' => 'users#search'
 end
