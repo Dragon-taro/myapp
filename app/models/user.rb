@@ -39,12 +39,20 @@ class User < ApplicationRecord
     end
   end
 
+  def accepted_disciple
+    follows_to.map{|follow| follow.from_user if follow.is_accept}
+  end
+
+  def accepted_master
+    follows_from.map{|follow| follow.to_user if follow.is_accept}
+  end
+
   def master_count
-    master.length
+    accepted_master.compact.length
   end
 
   def disciple_count
-    disciple.length
+    accepted_disciple.compact.length
   end
 
   def self.dummy_email(auth)
