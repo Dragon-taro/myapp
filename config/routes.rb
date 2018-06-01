@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :update]
   resources :follows, only: [:create]
+  resources :messages, only: [:create, :index]
+  get 'messages/masters' => 'messages#masters'
+  get 'messages/disciples' => 'messages#disciples'
   put 'follows/update' => 'follows#update'
   get 'masters' => 'users#index'
   get 'masters/search' => 'users#search'
