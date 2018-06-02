@@ -32,9 +32,7 @@ class EditZone extends React.Component {
         <If condition={!this.state.isEditMode} >
           <div>
             <span>{this.props.value}</span>
-            <If condition={this.props.is_current_user}>
-              <button onClick={this.editMode.bind(this)}>編集</button>
-            </If>
+            <button onClick={this.editMode.bind(this)}>編集</button>
           </div>
         </If>
         <If condition={this.state.isEditMode}>

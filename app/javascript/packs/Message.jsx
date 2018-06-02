@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import marked from 'marked'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SearchZone from './SearchZone'
 import MessageForm from './MessageForm'
@@ -60,7 +61,8 @@ class Message extends React.Component {
 
     const messageNode = this.state.follows.map(follow => {
       const messageNode = follow.messages.map(message => {
-        return <li key={message.id}>{message.content}</li>
+        const html = marked(message.content || '')
+        return <li key={message.id} dangerouslySetInnerHTML={{__html: html}}></li>
       })
       return (
         <TabPanel key={follow.follow.id}>

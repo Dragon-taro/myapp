@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get 'messages/disciples' => 'messages#disciples'
   put 'follows/update' => 'follows#update'
   get 'masters' => 'users#index'
+  get 'mypage' => 'users#mypage'
   get 'masters/search' => 'users#search'
 end

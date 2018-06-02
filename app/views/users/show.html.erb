@@ -1,2 +1,51 @@
-<div id="editOrShowUser"></div>
-<%= javascript_pack_tag 'EditOrShowUser' %>
+<div>
+  <h2>
+    <img src="<%= @user.image %>" />
+    <%= @user.name %>
+  </h2>
+
+  <div>
+    <ul>
+      <li>師匠 <%= @user.master_count %></li>
+      <li>弟子 <%= @user.disciple_count %></li>
+    </ul>
+  </div>
+
+  <ul>
+    <li>
+      <div>
+        自己紹介
+      </div>
+      <div>
+        <%= @user.description %>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        目標
+      </div>
+      <div>
+        <%= @user.goal %>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        スキル
+      </div>
+      <div>
+        <ul>
+          <% @user.skills.each do |skill| %>
+            <li>
+              <%= skill.language %>
+              <%= skill.description %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <div id="ApplyButton"></div>
+</div>
+<%= javascript_pack_tag 'ApplyButton'%>

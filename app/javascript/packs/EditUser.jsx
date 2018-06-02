@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import EditZone from './EditZone'
 import SkillEditZone from './SkillEditZone'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-
-class EditOrShowUser extends React.Component {
+class EditUser extends React.Component {
   constructor() {
     super()
     this.state={
@@ -47,6 +47,24 @@ class EditOrShowUser extends React.Component {
       data     : {user: {...this.state.user, skills_attributes: this.state.skills}},
       success: (data) => {
         this.setState(data)
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": false,
+          "progressBar": true,
+          "positionClass": "toast-top-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "500",
+          "timeOut": "3000",
+          "extendedTimeOut": "500",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        }
+        toastr.success('保存しました。')
       },
       error: (xhr, status, err) => {
         console.error(url, status, err.toString());
@@ -95,19 +113,12 @@ class EditOrShowUser extends React.Component {
       type     : type,
       data     : {follows: params},
       success: (data) => {
-        console.log(data);
+        toastr.success(data.messages)
       },
       error: (xhr, status, err) => {
         console.error(url, status, err.toString());
       },
     })
-  }
-
-  requestMaster() {
-    const url = Routes.follows_path()
-    const params = {to_user_id: this.state.user.id, from_user_id: this.state.current_user.id}
-    const type = 'POST'
-    this.ajax(url, params, type)
   }
 
   acceptDisciple(id) {
@@ -137,66 +148,79 @@ class EditOrShowUser extends React.Component {
     })
 
     return (
-      <div>
-        <h2>
-          <img src={this.state.user.image} />
-          <EditZone {...this.state} name='name' value={this.state.user.name} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='text'/>
-        </h2>
-
+      <Tabs>
         <div>
-          <ul>
-            <li>師匠 {this.state.user.master_count}</li>
-            <li>弟子 {this.state.user.disciple_count}</li>
-          </ul>
-        </div>
+          <TabList>
+            <Tab>基本情報</Tab>
+            <Tab>弟子入り申請</Tab>
+          </TabList>
 
-        <ul>
-          <li>
+          <TabPanel>
             <div>
-              自己紹介
-            </div>
-            <div>
-              <EditZone {...this.state} name='description' value={this.state.user.description} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
-            </div>
-          </li>
+              <h2>
+                <img src={this.state.user.image} />
+                <EditZone {...this.state} name='name' value={this.state.user.name} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='text'/>
+              </h2>
 
-          <li>
-            <div>
-              目標
-            </div>
-            <div>
-              <EditZone {...this.state} name='goal' value={this.state.user.goal} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
-            </div>
-          </li>
+              <div>
+                <ul>
+                  <li>師匠 {this.state.user.master_count}</li>
+                  <li>弟子 {this.state.user.disciple_count}</li>
+                </ul>
+              </div>
 
-          <li>
-            <div>
-              スキル
-            </div>
-            <div>
               <ul>
-                {skillNode}
+                <li>
+                  <div>
+                    自己紹介
+                  </div>
+                  <div>
+                    <EditZone {...this.state} name='description' value={this.state.user.description} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
+                  </div>
+                </li>
+
+                <li>
+                  <div>
+                    目標
+                  </div>
+                  <div>
+                    <EditZone {...this.state} name='goal' value={this.state.user.goal} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
+                  </div>
+                </li>
+
+                <li>
+                  <div>
+                    スキル
+                  </div>
+                  <div>
+                    <ul>
+                      {skillNode}
+                    </ul>
+                    <button onClick={this.addSkill.bind(this)}>スキルを追加</button>
+                  </div>
+                </li>
+                <label>
+                  <input name='is_master' type='checkbox' checked={this.state.user.is_master} onChange={this.handleMaster.bind(this)} />
+                  弟子を受け入れる（ここにチェックを入れると、師匠一覧ページに表示されます。）
+                </label>
               </ul>
-              <button onClick={this.addSkill.bind(this)}>スキルを追加</button>
             </div>
-          </li>
-          <label>
-            <input name='is_master' type='checkbox' checked={this.state.user.is_master} onChange={this.handleMaster.bind(this)} />
-            弟子を受け入れる（ここにチェックを入れると、師匠一覧ページに表示されます。）
-          </label>
-        </ul>
-        <button onClick={this.requestMaster.bind(this)}>弟子入り申請</button>
-        <ul>
-          {noAcceptedDisciple}
-        </ul>
-      </div>
+          </TabPanel>
+
+          <TabPanel>
+            <ul>
+              {noAcceptedDisciple}
+            </ul>
+          </TabPanel>
+        </div>
+      </Tabs>
     )
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <EditOrShowUser />,
-    document.getElementById("editOrShowUser"),
+    <EditUser />,
+    document.getElementById("editUser"),
   )
 })

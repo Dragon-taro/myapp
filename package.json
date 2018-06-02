@@ -3,6 +3,7 @@
     "@rails/webpacker": "^3.3.0",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
+    "marked": "^0.4.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

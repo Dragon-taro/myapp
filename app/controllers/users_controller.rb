@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     gon.user_id = @user.id
+    gon.current_user_id = current_user.id
     respond_to do |format|
       format.html
       format.json {}
@@ -27,6 +28,10 @@ class UsersController < ApplicationController
     @users = @users.where(id: params[:id]) if params[:id].present?
     @users = @users.where('users.name like ?', "%#{params[:name]}%") if params[:name].present?
     @users = @users.where(id: Skill.where(language: params[:skill]).pluck(:user_id)) if params[:skill].present?
+  end
+
+  def mypage
+    gon.user_id = current_user.id
   end
 
   private
