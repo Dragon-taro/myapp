@@ -1,0 +1,18 @@
+.m_header {
+  margin-bottom: 45px;
+  background-color: #65b0f5;
+  opacity: .8;
+  nav {
+    float: right;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 450px;
+      .gMenu {
+        display: inline-block;
+        line-height: 75px;
+        color: #fff;
+      }
+    }
+  }
+}

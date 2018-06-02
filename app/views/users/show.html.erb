@@ -1,40 +1,35 @@
-<div>
+<div class="m_showUser">
   <h2>
     <img src="<%= @user.image %>" />
     <%= @user.name %>
+    <span class="displayMD">師匠 <%= @user.master_count %>人</span>
+    <span class="displayMD">弟子 <%= @user.disciple_count %>人</span>
   </h2>
 
-  <div>
-    <ul>
-      <li>師匠 <%= @user.master_count %></li>
-      <li>弟子 <%= @user.disciple_count %></li>
-    </ul>
-  </div>
-
-  <ul>
-    <li>
-      <div>
+  <ul class="displayTable">
+    <li class="clearFix">
+      <div class="th">
         自己紹介
       </div>
-      <div>
+      <div class="td">
         <%= @user.description %>
       </div>
     </li>
 
-    <li>
-      <div>
+    <li class="clearFix">
+      <div class="th">
         目標
       </div>
-      <div>
+      <div class="td">
         <%= @user.goal %>
       </div>
     </li>
 
-    <li>
-      <div>
+    <li class="clearFix">
+      <div class="th">
         スキル
       </div>
-      <div>
+      <div class="td">
         <ul>
           <% @user.skills.each do |skill| %>
             <li>
@@ -46,6 +41,6 @@
       </div>
     </li>
   </ul>
-  <div id="ApplyButton"></div>
+  <div id="ApplyButton" class="applyButton"></div>
 </div>
 <%= javascript_pack_tag 'ApplyButton'%>

@@ -10,19 +10,21 @@
   </head>
 
   <body>
-    <header>
+    <header class="clearFix m_header">
+      <div class="innerWrapper">
         <nav>
           <ul>
             <% if user_signed_in? %>
-              <li><%= link_to '師匠を探す', masters_path() %></li>
-              <li><%= link_to 'メッセージ', messages_masters_path() %></li>
-              <li><%= link_to 'マイページ', mypage_path() %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to '師匠を探す', masters_path(), class: 'gMenu' %></li>
+              <li><%= link_to 'メッセージ', messages_masters_path(), class: 'gMenu' %></li>
+              <li><%= link_to 'マイページ', mypage_path(), class: 'gMenu' %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'gMenu' %></li>
             <% else %>
-              <li><%= link_to 'ログイン', new_user_session_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path, class: 'gMenu' %></li>
             <% end %>
           </ul>
         </nav>
+      </div>
     </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

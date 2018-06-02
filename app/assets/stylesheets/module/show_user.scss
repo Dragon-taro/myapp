@@ -1,0 +1,54 @@
+.m_showUser {
+  margin-top: 30px;
+  width: 950px;
+  margin: 0 auto;
+  h2 {
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+    margin-bottom: 30px;
+  }
+
+  .displayMD {
+    font-size: 14px;
+    font-weight: normal;
+    color: #888;
+  }
+
+  .displayTable {
+    > li {
+      border-bottom: 1px solid #ddd;
+    }
+    .th, .td {
+      float: left;
+      padding: 10px;
+    }
+
+    .th {
+      width: 150px;
+      color: #888;
+    }
+
+    .td {
+      width: 800px;
+      color: #666;
+    }
+  }
+
+  .applyButton {
+    text-align: center;
+    margin-top: 30px;
+    button {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: #1D8BF1;
+      color: #fff;
+      transition-duration: .2s;
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}
