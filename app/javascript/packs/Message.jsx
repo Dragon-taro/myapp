@@ -30,6 +30,7 @@ class Message extends React.Component {
   }
 
   loadData(type, key_value=null) {
+    console.log(key_value);
     const url = Routes.messages_path({opponent_user: gon.opponent_user})
     $.ajax({
       url      : url,
@@ -44,9 +45,9 @@ class Message extends React.Component {
       },
     })
   }
-z
-  handleSubmit(key_value, id) {
-    this.loadData('POST', key_value, id)
+
+  handleSubmit(key_value) {
+    this.loadData('POST', key_value)
   }
 
   render() {
@@ -65,7 +66,7 @@ z
       return (
         <TabPanel key={follow.follow.id}>
           <ul>{messageNode}</ul>
-          <MessageForm handleSubmit={this.handleSubmit.bind(this, follow.follow.id)} />
+          <MessageForm handleSubmit={this.handleSubmit.bind(this)} {...follow.follow} />
         </TabPanel>
       )
     })

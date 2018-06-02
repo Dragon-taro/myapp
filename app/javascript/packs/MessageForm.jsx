@@ -9,22 +9,22 @@ class MessageForm extends React.Component {
   constructor() {
     super()
     this.state={
-      value: ''
+      content: ''
     }
   }
 
   handleChange(e) {
-    this.setState({value: e.target.value})
+    this.setState({content: e.target.value})
   }
 
   handleSubmit() {
-    this.props.handleSubmit(this.state)
+    this.props.handleSubmit({...this.state, follow_id: this.props.id})
   }
 
   render() {
     return (
       <div>
-        <input type='text' value={this.state.value} onChange={this.handleChange.bind(this)} />
+        <input type='text' value={this.state.content} onChange={this.handleChange.bind(this)} />
         <button onClick={this.handleSubmit.bind(this)}>送信</button>
       </div>
     )

@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.permit(:follow_id).merge(user_id: current_user.id)
+    params.permit(:follow_id, :content).merge(user_id: current_user.id)
   end
 
   def set_users
