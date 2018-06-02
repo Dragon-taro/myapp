@@ -1,0 +1,18 @@
+.m_tabs {
+  .tabList {
+    display: flex;
+    .tab {
+      color: #1D8BF1;
+      cursor: pointer;
+      font-size: 20px;
+      margin-right: 20px;
+      padding-bottom: 10px;
+      transition-duration: .1s;
+      &.active {
+        font-weight: bold;
+        cursor: default;
+        border-bottom: 3px solid #1D8BF1;
+      }
+    }
+  }
+}

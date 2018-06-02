@@ -28,22 +28,22 @@ class EditZone extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='m_editZone'>
         <If condition={!this.state.isEditMode} >
-          <div>
+          <div className='showMode'>
             <span>{this.props.value}</span>
-            <button onClick={this.editMode.bind(this)}>編集</button>
+            <button className='p_button blue' onClick={this.editMode.bind(this)}>編集</button>
           </div>
         </If>
         <If condition={this.state.isEditMode}>
-          <div>
+          <div className='editMode'>
             <If condition={this.props.type == 'textarea'}>
               <textarea value={this.props.value} onChange={this.handleChange.bind(this)}></textarea>
             </If>
             <If condition={this.props.type != 'textarea'}>
               <input type='text' value={this.props.value} onChange={this.handleChange.bind(this)} />
             </If>
-            <button onClick={this.handleSave.bind(this)}>保存</button>
+            <button className='p_button blue' onClick={this.handleSave.bind(this)}>保存</button>
           </div>
         </If>
       </div>

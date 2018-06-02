@@ -1,0 +1,24 @@
+.p_button {
+  font-size: 14px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-weight: normal;
+  vertical-align: middle;
+  &.blue {
+    color: #1D8BF1;
+    border: 1px solid #1D8BF1;
+  }
+  &.red {
+    color: #f11d21;
+    border: 1px solid #f11d21;
+  }
+  &.gray {
+    color: #fff;
+    background-color: #aaa;
+    width: 90px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
+    margin-right: 10px;
+  }
+}

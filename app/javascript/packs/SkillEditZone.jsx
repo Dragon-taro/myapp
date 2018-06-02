@@ -28,15 +28,15 @@ class SkillEditZone extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='m_skillZone'>
         <If condition={!this.state.isEditMode} >
           <div>
-            <span>{this.props.language}</span>
+            <span className='p_button gray'>{this.props.language}</span>
             <span>{this.props.description}</span>
             <If condition={this.props.is_current_user}>
-              <div>
-                <button onClick={this.editMode.bind(this)}>編集</button>
-                <button onClick={this.props.handleDelete}>削除</button>
+              <div className='buttonZone'>
+                <button className='p_button blue' onClick={this.editMode.bind(this)}>編集</button>
+                <button className='p_button red' onClick={this.props.handleDelete}>削除</button>
               </div>
             </If>
           </div>
@@ -44,8 +44,10 @@ class SkillEditZone extends React.Component {
         <If condition={this.state.isEditMode}>
           <div>
             <input type='text' name='language' value={this.props.language} onChange={this.handleChange.bind(this)}/>
-            <textarea name='description' value={this.props.description} onChange={this.handleChange.bind(this)}></textarea>
-            <button onClick={this.handleSave.bind(this)}>保存</button>
+            <input type='text' name='description' value={this.props.description} onChange={this.handleChange.bind(this)} />
+            <div className='buttonZone'>
+              <button className='p_button blue' onClick={this.handleSave.bind(this)}>保存</button>
+            </div>
           </div>
         </If>
       </div>

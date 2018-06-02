@@ -148,58 +148,53 @@ class EditUser extends React.Component {
     })
 
     return (
-      <Tabs>
-        <div>
-          <TabList>
-            <Tab>基本情報</Tab>
-            <Tab>弟子入り申請</Tab>
+      <Tabs selectedTabClassName='active' className='m_tabs'>
+        <div className='innerWrapper'>
+          <TabList className='tabList'>
+            <Tab className='tab'>基本情報</Tab>
+            <Tab className='tab'>弟子入り申請</Tab>
           </TabList>
 
           <TabPanel>
-            <div>
+            <div className='m_showUser edit'>
               <h2>
                 <img src={this.state.user.image} />
                 <EditZone {...this.state} name='name' value={this.state.user.name} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='text'/>
+                <span className="displayMD">師匠 {this.state.user.master_count}人 </span>
+                <span className="displayMD">弟子 {this.state.user.disciple_count}人</span>
               </h2>
 
-              <div>
-                <ul>
-                  <li>師匠 {this.state.user.master_count}</li>
-                  <li>弟子 {this.state.user.disciple_count}</li>
-                </ul>
-              </div>
-
-              <ul>
-                <li>
-                  <div>
+              <ul className='displayTable'>
+                <li className='clearFix'>
+                  <div className='th'>
                     自己紹介
                   </div>
-                  <div>
+                  <div className='td'>
                     <EditZone {...this.state} name='description' value={this.state.user.description} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
                   </div>
                 </li>
 
-                <li>
-                  <div>
+                <li className='clearFix'>
+                  <div className='th'>
                     目標
                   </div>
-                  <div>
+                  <div className='td'>
                     <EditZone {...this.state} name='goal' value={this.state.user.goal} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='textarea'/>
                   </div>
                 </li>
 
-                <li>
-                  <div>
+                <li className='clearFix'>
+                  <div className='th'>
                     スキル
                   </div>
-                  <div>
+                  <div className='td'>
                     <ul>
                       {skillNode}
                     </ul>
-                    <button onClick={this.addSkill.bind(this)}>スキルを追加</button>
+                    <button className='p_button blue' onClick={this.addSkill.bind(this)}>スキルを追加</button>
                   </div>
                 </li>
-                <label>
+                <label className='isMaster'>
                   <input name='is_master' type='checkbox' checked={this.state.user.is_master} onChange={this.handleMaster.bind(this)} />
                   弟子を受け入れる（ここにチェックを入れると、師匠一覧ページに表示されます。）
                 </label>

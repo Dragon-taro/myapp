@@ -32,8 +32,8 @@
       <div class="td">
         <ul>
           <% @user.skills.each do |skill| %>
-            <li>
-              <%= skill.language %>
+            <li class="skillRow">
+              <span class="p_button gray"><%= skill.language %></span>
               <%= skill.description %>
             </li>
           <% end %>
