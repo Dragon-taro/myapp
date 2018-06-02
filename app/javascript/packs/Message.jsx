@@ -30,7 +30,6 @@ class Message extends React.Component {
   }
 
   loadData(type, key_value=null) {
-    console.log(key_value);
     const url = Routes.messages_path({opponent_user: gon.opponent_user})
     $.ajax({
       url      : url,
