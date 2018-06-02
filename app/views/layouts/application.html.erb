@@ -12,12 +12,16 @@
   <body>
     <header>
         <nav>
+          <ul>
             <% if user_signed_in? %>
-            <%= link_to 'プロフィール変更', user_path(current_user.id) %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-            <%= link_to 'ログイン', new_user_session_path %>
+              <li><%= link_to '師匠を探す', masters_path() %></li>
+              <li><%= link_to 'メッセージ', messages_masters_path() %></li>
+              <li><%= link_to 'マイページ', mypage_path() %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
             <% end %>
+          </ul>
         </nav>
     </header>
     <p class="notice"><%= notice %></p>
