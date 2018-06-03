@@ -148,7 +148,7 @@ class EditUser extends React.Component {
     })
 
     return (
-      <Tabs selectedTabClassName='active' className='m_tabs'>
+      <Tabs selectedTabClassName='active' className='m_editUser'>
         <div className='innerWrapper'>
           <TabList className='tabList'>
             <Tab className='tab'>基本情報</Tab>

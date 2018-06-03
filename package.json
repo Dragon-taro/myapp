@@ -4,11 +4,13 @@
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
     "marked": "^0.4.0",
+    "moment": "^2.22.2",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-dropzone": "^4.2.9",
-    "react-tabs": "^2.2.2"
+    "react-tabs": "^2.2.2",
+    "v": "^0.3.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.1.0"

@@ -1,0 +1,23 @@
+.m_loginZone {
+  text-align: center;
+  h2 {
+    color: #1D8BF1;
+    margin-bottom: 10px;
+  }
+  p {
+    color: #aaa;
+  }
+  a {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #1997F0;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 30px;
+    transition-duration: .2s;
+    &:hover {
+      text-decoration: none;
+      opacity: .8;
+    }
+  }
+}
