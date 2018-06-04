@@ -1,6 +1,18 @@
 .m_header {
   margin-bottom: 45px;
   background-color: #99CDF7;
+  .title {
+    float: left;
+    a {
+      line-height: 75px;
+      color: #fff;
+      font-size: 30px;
+      font-family: 'Jua', sans-serif;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
   nav {
     float: right;
     .menuWrapper {
@@ -24,7 +36,9 @@
             padding: 10px;
             width: 100%;
             .dropdownContent {
-
+              a {
+                color: #fff;
+              }
             }
           }
           &:hover {

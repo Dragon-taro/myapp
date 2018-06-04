@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>SHISHO</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
   </head>
 
   <body class="<%= params[:controller].gsub('/', ' ') %> <%= params[:action] %>">
     <header class="clearFix m_header">
       <div class="innerWrapper">
-        <nav>
-          <ul class="menuWrapper">
-            <% if user_signed_in? %>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'gMenu' %></li>
-            <li class="gMenu message">
-              メッセージ
-              <ul class="dropdownMenu">
-                <li>
-                  <%= link_to '師匠', messages_masters_path(), class: 'dropdownContent' %>
-                </li>
-                <li>
-                  <%= link_to '弟子', messages_disciples_path(), class: 'dropdownContent' %>
-                </li>
-              </ul>
-            </li>
-            <li><%= link_to 'マイページ', mypage_path(), class: 'gMenu' %></li>
-              <li><%= link_to '師匠を探す', masters_path(), class: 'gMenu' %></li>
-            <% else %>
-              <li><%= link_to 'ログイン', new_user_session_path, class: 'gMenu' %></li>
-            <% end %>
-          </ul>
-        </nav>
+        <div class="title">
+          <a href="/">
+            SHISHO
+          </a>
+        </div>
+        <%= render "layouts/navigation" %>
       </div>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <div class="innerWrapper">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
+    <% if "#{params[:controller]}" != "messages"%>
+    <footer class="m_footer">
+      <div class="innerWrapper">
+        <div class="title">
+          SHISHO
+        </div>
+        <ul>
+          <li>
+            <a href="#">
+              SHISHOについて
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              つくった人
+            </a>
+          </li>
+        </ul>
+        <div class="copyRight">
+          ©️ 2018 宮川 竜太朗
+        </div>
+      </div>
+    </footer>
+    <% end %>
   </body>
 </html>
