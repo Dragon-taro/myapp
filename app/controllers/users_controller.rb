@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :set_is_current_user
 
   def index
-    @users = User.all.limit(10) # @userはログインしてるユーザーを格納, @usersはuserをいっぱい入れた配列
+    @top_users = User.joins(:follows_to).group(:id).order('count(to_user_id) DESC').where(is_master: true).limit(3)
+    @users = User.all.order('updated_at DESC').where(is_master: true).limit(10)
   end
 
   def show

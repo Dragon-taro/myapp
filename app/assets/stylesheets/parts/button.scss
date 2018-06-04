@@ -4,9 +4,21 @@
   border-radius: 5px;
   font-weight: normal;
   vertical-align: middle;
+  display: inline-block;
+  transition-duration: .2s;
+  &:hover {
+    text-decoration: none;
+    opacity: .8;
+  }
   &.blue {
     color: #1D8BF1;
     border: 1px solid #1D8BF1;
+    &.reverse {
+      color: #fff;
+      border: none;
+      background-color: #1D8BF1;
+      border-radius: 0;
+    }
   }
   &.red {
     color: #f11d21;
@@ -20,5 +32,8 @@
     display: inline-block;
     padding: 0 8px;
     margin-right: 10px;
+    &:hover {
+      opacity: 1;
+    }
   }
 }

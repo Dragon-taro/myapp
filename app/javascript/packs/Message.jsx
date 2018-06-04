@@ -54,9 +54,20 @@ class Message extends React.Component {
 
   render() {
     const userNode = this.state.follows.map(follow => {
+      const date = moment(follow.updated_at).format("MM/DD hh:mm")
       return (
         <Tab key={follow.follow.id} className='tab'>
-          <div>{follow.opponent_user.name}</div>
+          <div className='leftContent'>
+            <img src={follow.opponent_user.image} />
+          </div>
+          <div className='rightContent'>
+            <div className='name'>
+              {follow.opponent_user.name}
+            </div>
+            <div className='date'>
+              {date}
+            </div>
+          </div>
         </Tab>
       )
     })
