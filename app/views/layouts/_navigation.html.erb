@@ -14,7 +14,7 @@
       </ul>
     </li>
     <li><%= link_to 'マイページ', mypage_path(), class: 'gMenu' %></li>
-      <li><%= link_to '師匠を探す', masters_path(), class: 'gMenu' %></li>
+      <li><%= link_to '師匠を探す', root_path(), class: 'gMenu' %></li>
     <% else %>
       <li><%= link_to 'ログイン', new_user_session_path, class: 'gMenu' %></li>
     <% end %>

@@ -21,26 +21,27 @@
         <%= render "layouts/navigation" %>
       </div>
     </header>
-    <div class="innerWrapper">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
     <%= yield %>
     <% if "#{params[:controller]}" != "messages"%>
-    <footer class="m_footer">
+    <footer class="m_fotter">
       <div class="innerWrapper">
         <div class="title">
           SHISHO
         </div>
         <ul>
           <li>
-            <a href="#">
+            <a href="/">
               SHISHOについて
             </a>
           </li>
           <li>
-            <a href="#">
-              つくった人
+            <a href="<%= admin_path %>">
+              SHISHOをつくった人
+            </a>
+          </li>
+          <li>
+            <a href="https://note.mu/dragontaro/n/n550a38a3261f">
+              プログラミングコンサル
             </a>
           </li>
         </ul>

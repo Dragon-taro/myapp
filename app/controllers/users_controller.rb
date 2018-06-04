@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  before_action :redirect_login, only: [:show, :update, :mypage]
   before_action :set_user, only: [:show, :update]
   before_action :set_is_current_user
 
@@ -33,6 +34,10 @@ class UsersController < ApplicationController
 
   def mypage
     gon.user_id = current_user.id
+  end
+
+  def admin
+
   end
 
   private

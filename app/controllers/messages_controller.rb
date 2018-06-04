@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 
+  before_action :redirect_login
   before_action :set_users
   before_action :set_follows
   before_action :set_opponent_user, only: [:masters, :disciples]
