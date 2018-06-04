@@ -144,7 +144,15 @@ class EditUser extends React.Component {
     }) : null
 
     const noAcceptedDisciple = this.state.no_accepted_disciple.map(dis => {
-      return <li key={dis.id}><img src={dis.image} />{dis.name}<button onClick={this.acceptDisciple.bind(this, dis.id)}>承認</button></li>
+      return (
+        <li key={dis.id} className='clearFix'>
+          <a href={Routes.user_path(dis.id)}>
+            <img src={dis.image} />
+            {dis.name}
+          </a>
+          <button className='p_button blue reverse' onClick={this.acceptDisciple.bind(this, dis.id)}>承認</button>
+        </li>
+      )
     })
 
     return (
@@ -203,7 +211,7 @@ class EditUser extends React.Component {
           </TabPanel>
 
           <TabPanel>
-            <ul>
+            <ul className='m_unacceptedUser'>
               {noAcceptedDisciple}
             </ul>
           </TabPanel>

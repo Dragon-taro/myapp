@@ -4,14 +4,14 @@ class FollowsController < ApplicationController
 
   def update
     @follow.update(is_accept: true)
-    render :json => {messages: "承認しました"} 
+    render :json => {messages: "承認しました"}
   end
 
   def create
     if @follow.present? && @follow.is_accept
       render :json => {messages: '承認済みです。', status: 500}
     elsif @follow.present? && !@follow.is_accept
-      render :json => {messages: '承認済みです。', status: 500}
+      render :json => {messages: '申請済みです。', status: 500}
     else
       Follow.create!(follow_params)
       render :json => {messages: '弟子入り申請しました。', status: 200}

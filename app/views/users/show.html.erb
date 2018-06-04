@@ -41,6 +41,8 @@
       </div>
     </li>
   </ul>
-  <div id="ApplyButton" class="applyButton"></div>
+  <% if @user.is_master && @user != current_user %>
+    <div id="ApplyButton" class="applyButton"></div>
+  <% end %>
 </div>
 <%= javascript_pack_tag 'ApplyButton'%>
