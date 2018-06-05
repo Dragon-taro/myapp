@@ -1,0 +1,22 @@
+<% users.each do |user| %>
+  <div class="m_userList">
+    <a href="<%= user_path(user.id) %>">
+      <h3>
+        <img src="<%= user.image %>">
+        <%= user.name %>
+      </h3>
+      <div class="displayMDBox">
+        <span class="displayMD">師匠 <%= user.master_count %>人</span>
+        <span class="displayMD">弟子 <%= user.disciple_count %>人</span>
+      </div>
+      <div class="content">
+        <%= user.description %>
+      </div>
+      <div class="skills">
+        <% user.skills.each do |skill| %>
+          <span class="p_button gray"><%= skill.language %></span>
+        <% end %>
+      </div>
+    </a>
+  </div>
+<% end %>

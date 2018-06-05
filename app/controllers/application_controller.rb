@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   def current_user?(user)
     current_user == user
   end
+
+  def redirect_login
+    unless current_user.present?
+      redirect_to new_user_session_path
+    end
+  end
 end

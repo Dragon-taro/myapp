@@ -32,6 +32,7 @@ class SearchUser extends React.Component {
     $.ajax({
       url      : url,
       dataType : 'json',
+      cache    : false,
       type     : 'GET',
       success: (data) => {
         this.setState(data)
@@ -55,27 +56,37 @@ class SearchUser extends React.Component {
   render() {
     const masterNode = this.state.users.map(user => {
       const skillNode = user.skill_list.map((skill, index) => {
-          return <span key={index}>{skill}</span>
+          return <span className='p_button gray' key={index} style={{marginRight: '5px'}}>{skill}</span>
       })
       return (
-        <li key={user.id}>
-          <h2><img src={user.image} />{user.name}</h2>
-          <ul>
-            <li>師匠：{user.master_count}</li>
-            <li>弟子：{user.disciple_count}</li>
-          </ul>
-          <p>{user.description}</p>
-          <p>{skillNode}</p>
+        <li key={user.id} className='m_userList'>
+          <a href={Routes.user_path(user.id)}>
+            <h3><img src={user.image} /> {user.name}</h3>
+            <div className="displayMDBox">
+              <span className="displayMD">師匠 {user.master_count}人</span>
+              <span className="displayMD">弟子 {user.disciple_count}人</span>
+            </div>
+            <div className="content">
+              {user.description}
+            </div>
+            <div className="skills">
+              {skillNode}
+            </div>
+          </a>
         </li>
       )
     })
     return (
-       <div>
-         <ul>
-           {masterNode}
-         </ul>
-         <SearchZone {...this.state} handleChange={this.handleChange.bind(this)}/>
-         <button onClick={this.handleSearch.bind(this)}>検索</button>
+       <div className='innerWrapper'>
+         <div className='m_showAndSearchZone'>
+           <ul className='leftContent'>
+             {masterNode}
+           </ul>
+           <div className='rightContent'>
+             <SearchZone {...this.state} handleChange={this.handleChange.bind(this)}/>
+             <button className='p_button blue reverse' onClick={this.handleSearch.bind(this)}>検索</button>
+           </div>
+         </div>
        </div>
     )
   }

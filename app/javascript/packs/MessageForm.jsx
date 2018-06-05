@@ -9,31 +9,29 @@ class MessageForm extends React.Component {
   constructor() {
     super()
     this.state={
-      value: ''
+      content: ''
     }
   }
 
   handleChange(e) {
-    this.setState({value: e.target.value})
+    this.setState({content: e.target.value})
   }
 
   handleSubmit() {
-    this.props.handleSubmit({this.state})
+    if (this.state.content) {
+      this.props.handleSubmit({...this.state, follow_id: this.props.id})
+      this.setState({content: ''})
+    }
   }
 
   render() {
     return (
-      <div>
-        <input type='text' value={this.state.value} onChange={this.handleChange.bind(this)} />
-        <button onClick={this.handleSubmit.bind(this)}>送信</button>
+      <div className='messageForm'>
+        <textarea value={this.state.content} onChange={this.handleChange.bind(this)}></textarea>
+        <button className={this.state.content ? '' : 'disable'} onClick={this.handleSubmit.bind(this)}>送信</button>
       </div>
     )
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <MessageForm />,
-    document.getElementById("MessageForm"),
-  )
-})
+export default MessageForm

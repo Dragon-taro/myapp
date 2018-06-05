@@ -1,0 +1,27 @@
+/* # =================================================================
+   # clearfix
+   # http://cssmojo.com/the-very-latest-clearfix-reloaded/
+   # ================================================================= */
+.clearFix:before,
+.clearFix:after {
+    content: " ";
+    display: table;
+}
+.clearFix:after {
+    clear: both;
+}
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearFix {
+    *zoom: 1;
+}
+
+.innerWrapper {
+  width: 950px;
+  margin: 0 auto;
+}
+/* # =================================================================
+   # common
+   # ================================================================= */

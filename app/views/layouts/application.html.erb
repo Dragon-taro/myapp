@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>SHISHO</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
   </head>
 
-  <body>
-    <header>
-        <nav>
-            <% if user_signed_in? %>
-            <%= link_to 'プロフィール変更', user_path(current_user.id) %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-            <%= link_to 'ログイン', new_user_session_path %>
-            <% end %>
-        </nav>
+  <body class="<%= params[:controller].gsub('/', ' ') %> <%= params[:action] %>">
+    <header class="clearFix m_header">
+      <div class="innerWrapper">
+        <div class="title">
+          <a href="/">
+            SHISHO
+          </a>
+        </div>
+        <%= render "layouts/navigation" %>
+      </div>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <%= yield %>
+    <% if "#{params[:controller]}" != "messages"%>
+    <footer class="m_fotter">
+      <div class="innerWrapper">
+        <div class="title">
+          SHISHO
+        </div>
+        <ul>
+          <li>
+            <a href="/">
+              SHISHOについて
+            </a>
+          </li>
+          <li>
+            <a href="<%= admin_path %>">
+              SHISHOをつくった人
+            </a>
+          </li>
+          <li>
+            <a href="https://note.mu/dragontaro/n/n550a38a3261f">
+              プログラミングコンサル
+            </a>
+          </li>
+        </ul>
+        <div class="copyRight">
+          ©️ 2018 宮川 竜太朗
+        </div>
+      </div>
+    </footer>
+    <% end %>
   </body>
 </html>

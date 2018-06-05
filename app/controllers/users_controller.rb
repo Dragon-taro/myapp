@@ -1,18 +1,17 @@
 class UsersController < ApplicationController
 
+  before_action :redirect_login, only: [:show, :update, :mypage]
   before_action :set_user, only: [:show, :update]
   before_action :set_is_current_user
 
   def index
-    @users = User.all.limit(10) # @userはログインしてるユーザーを格納, @usersはuserをいっぱい入れた配列
+    @top_users = User.joins(:follows_to).group(:id).order('count(to_user_id) DESC').where(is_master: true).limit(3)
+    @users = User.all.order('updated_at DESC').where(is_master: true).limit(10)
   end
 
   def show
     gon.user_id = @user.id
-    respond_to do |format|
-      format.html
-      format.json {}
-    end
+    gon.current_user_id = current_user.id
   end
 
   def update
@@ -23,10 +22,18 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.all
+    @users = User.where(is_master: true)
     @users = @users.where(id: params[:id]) if params[:id].present?
     @users = @users.where('users.name like ?', "%#{params[:name]}%") if params[:name].present?
     @users = @users.where(id: Skill.where(language: params[:skill]).pluck(:user_id)) if params[:skill].present?
+  end
+
+  def mypage
+    gon.user_id = current_user.id
+  end
+
+  def admin
+
   end
 
   private

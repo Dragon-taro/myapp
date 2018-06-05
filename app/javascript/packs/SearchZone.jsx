@@ -16,9 +16,15 @@ class SearchZone extends React.Component {
 
   render() {
     return (
-      <div>
-        <input type='text' value={this.props.searchParams.name} name='name' onChange={this.handleChange.bind(this)}/>
-        <input type='text' value={this.props.searchParams.skill} name='skill' onChange={this.handleChange.bind(this)}/>
+      <div className='m_serachForm'>
+        <div>
+          <p>名前</p>
+          <input type='text' value={this.props.searchParams.name || ''} name='name' onChange={this.handleChange.bind(this)}/>
+        </div>
+        <div>
+          <p>スキル</p>
+          <input type='text' value={this.props.searchParams.skill || ''} name='skill' onChange={this.handleChange.bind(this)}/>
+        </div>
       </div>
     )
   }

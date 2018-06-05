@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 
+  before_action :redirect_login
   before_action :set_users
   before_action :set_follows
   before_action :set_opponent_user, only: [:masters, :disciples]
@@ -23,7 +24,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.permit(:follow_id).merge(user_id: current_user.id)
+    params.permit(:follow_id, :content).merge(user_id: current_user.id)
   end
 
   def set_users
