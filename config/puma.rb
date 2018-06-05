@@ -1,3 +1,13 @@
+#ここから
+#_homeは各自環境で設定してください。
+_proj_path = "#{File.expand_path("../..", __FILE__)}"
+_proj_name = File.basename(_proj_path)
+_home = ENV.fetch("HOME") { "/home/dragon_taro" }
+
+pidfile "#{_home}/run/#{_proj_name}.pid"
+bind "unix://#{_home}/run/#{_proj_name}.sock"
+directory _proj_path
+#ここまで追記
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -13,7 +23,7 @@ port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV['RAILS_ENV']
+environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
@@ -21,11 +31,7 @@ environment ENV['RAILS_ENV']
 # Workers do not work on JRuby or Windows (both of which do not support
 # processes).
 #
-workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-daemonize true
-pidfile "#{Dir.pwd}/tmp/pids/puma.pid"
-state_path "#{Dir.pwd}/tmp/pids/puma.state"
-stdout_redirect "#{Dir.pwd}/log/puma.stdout.log", "#{Dir.pwd}/log/puma.stderr.log", true
+# workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
