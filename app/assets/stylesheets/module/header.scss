@@ -1,0 +1,53 @@
+.m_header {
+  margin-bottom: 45px;
+  background-color: #99CDF7;
+  .title {
+    float: left;
+    a {
+      line-height: 75px;
+      color: #fff !important;
+      font-size: 30px;
+      font-family: 'Jua', sans-serif;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  nav {
+    float: right;
+    .menuWrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: 450px;
+      .gMenu {
+        display: inline-block;
+        line-height: 75px;
+        color: #fff;
+        &.message {
+          position: relative;
+          .dropdownMenu {
+            display: none;
+            line-height: 2;
+            position: absolute;
+            top: 50px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 100%;
+            .dropdownContent {
+              a {
+                color: #fff;
+              }
+            }
+          }
+          &:hover {
+            .dropdownMenu {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.m_message {
+  .tabWrapper {
+    display: flex;
+    margin-top: -45px;
+    height: calc(100vh - 70px);
+    .tabList {
+      overflow: scroll;
+      width: 30%;
+      border-right: 1px solid #ddd;
+      .tab {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        &.active {
+          background-color: #f1f1f1;
+        }
+        .leftContent {
+          margin-right: 20px;
+          img {
+            border-radius: 50%;
+            width: 48px;
+          }
+        }
+        .rightContent {
+          width: 70%;
+          .name {
+            font-size: 18px;
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+    .tabPanel {
+      height: 100%;
+      &.active {
+        width: 70%;
+      }
+      .messageWrapper {
+        padding: 10px;
+        box-sizing: content-box;
+        height: calc(100% - 80px);
+        overflow: scroll;
+        .message {
+          width: 60%;
+          margin-bottom: 20px;
+          .content {
+            padding: 10px;
+            overflow: scroll;
+            border-radius: 5px;
+            code {
+              font-family: SFMono-Regular, Consolas, Mono, Menlo, Courier, monospace;
+            }
+          }
+          &.right {
+            float: right;
+            .content {
+              background-color: #E1ECF4;
+            }
+          }
+          &.left {
+            float: left;
+            .content {
+              background-color: #f1f1f1;
+            }
+          }
+        }
+      }
+      .messageForm {
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        width: 70%;
+        textarea {
+          width: calc(100% - 100px);
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          padding: 10px;
+          margin: 10px;
+          margin-bottom: 0;
+          bottom: 0;
+        }
+        button {
+          padding: 10px 20px;
+          background-color: #1D8BF1;
+          color: #fff;
+          font-size: 14px;
+          display: inline-block;
+          vertical-align: text-bottom;
+          &.disable {
+            opacity: .4;
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}

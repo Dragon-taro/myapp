@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.1'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -36,6 +35,7 @@ gem 'curb'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'mysql2', '>= 0.3.18', '< 0.5'
 end
 
 group :development do
@@ -58,3 +58,11 @@ gem 'webpacker', '~> 3.0'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mime-types', '3.1'
+
+gem 'devise'
+#omniauth
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
+gem "js-routes"
+gem 'gon'

@@ -1,0 +1,73 @@
+.m_showUser {
+  margin-top: 30px;
+  h2 {
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+    margin-bottom: 30px;
+  }
+
+  &.edit {
+    h2 {
+      .m_editZone {
+        margin-top: 10px;
+      }
+    }
+    .isMaster {
+      display: block;
+      margin-top: 30px;
+      input[type='checkbox'] {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .displayMD {
+    font-size: 14px;
+    font-weight: normal;
+    color: #888;
+  }
+
+  .displayTable {
+    > li {
+      border-bottom: 1px solid #ddd;
+    }
+    .th, .td {
+      float: left;
+      padding: 10px;
+    }
+
+    .th {
+      width: 150px;
+      color: #888;
+    }
+
+    .td {
+      width: 800px;
+      color: #666;
+      .skillRow {
+        margin-bottom: 10px;
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .applyButton {
+    text-align: center;
+    margin-top: 30px;
+    button {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: #1D8BF1;
+      color: #fff;
+      transition-duration: .2s;
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}

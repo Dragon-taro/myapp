@@ -1,0 +1,22 @@
+<nav>
+  <ul class="menuWrapper">
+    <% if user_signed_in? %>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'gMenu' %></li>
+    <li class="gMenu message">
+      メッセージ
+      <ul class="dropdownMenu">
+        <li>
+          <%= link_to '師匠', messages_masters_path(), class: 'dropdownContent' %>
+        </li>
+        <li>
+          <%= link_to '弟子', messages_disciples_path(), class: 'dropdownContent' %>
+        </li>
+      </ul>
+    </li>
+    <li><%= link_to 'マイページ', mypage_path(), class: 'gMenu' %></li>
+      <li><%= link_to '師匠を探す', root_path(), class: 'gMenu' %></li>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: 'gMenu' %></li>
+    <% end %>
+  </ul>
+</nav>

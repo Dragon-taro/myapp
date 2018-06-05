@@ -1,0 +1,20 @@
+.m_unacceptedUser {
+  margin-top: 30px;
+  li {
+    font-size: 22px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    a {
+      display: inline-block;
+      width: 300px;
+      img {
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+    }
+    .p_button {
+      float: right;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.m_showAndSearchZone {
+  display: flex;
+  justify-content: space-between;
+  .leftContent {
+    width: 65%;
+  }
+  .rightContent {
+    width: 30%;
+  }
+}

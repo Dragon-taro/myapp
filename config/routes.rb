@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  root 'home#index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
+  root 'users#index'
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  resources :users, only: [:show, :update]
+  resources :follows, only: [:create]
+  resources :messages, only: [:create, :index]
+  get 'messages/masters' => 'messages#masters'
+  get 'messages/disciples' => 'messages#disciples'
+  put 'follows/update' => 'follows#update'
+  get 'mypage' => 'users#mypage'
+  get 'admin' => 'users#admin'
+  get 'masters/search' => 'users#search'
 end

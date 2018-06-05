@@ -1,0 +1,14 @@
+<div class="m_loginZone">
+  <h2>ログイン</h2>
+  <p>
+    Twitterの認証によってのみログインすることができます。 <br>
+    初めてログインするときにこのサービスのアカウントが作られます。 <br>
+    確認なしにTwitterに投稿されることはありません。
+  </p>
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to "#{OmniAuth::Utils.camelize(provider)}でログイン", omniauth_authorize_path(resource_name, provider) %><br />
+    <% end -%>
+  <% end -%>
+
+</div>
