@@ -30,3 +30,4 @@ yarn-debug.log*
 .DS_Store
 /db/mysql_data
 /.env
+/config/secrets.yml
