@@ -33,7 +33,9 @@ class UsersController < ApplicationController
   end
 
   def admin
+  end
 
+  def terms
   end
 
   private

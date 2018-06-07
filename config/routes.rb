@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   put 'follows/update' => 'follows#update'
   get 'mypage' => 'users#mypage'
   get 'admin' => 'users#admin'
+  get 'terms' => 'users#terms'
   get 'masters/search' => 'users#search'
 end

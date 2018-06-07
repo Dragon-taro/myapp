@@ -1,27 +1,32 @@
-body.users.admin {
-  h1, h2 {
-    color: #1D8BF1;
-    margin: 60px 0 30px 0;
-  }
-  h1 {
-    font-size: 26px;
-  }
-  h2 {
-    font-size: 22px;
-  }
-  p {
-    margin: 30px 0;
-    line-height: 2.4;
-  }
-  a {
-    color: #1D8BF1;
-    &:hover {
-      opacity: .8;
+body.users.admin,
+body.users.terms {
+  .content {
+    h1, h2 {
+      color: #1D8BF1;
+      margin: 60px 0 30px 0;
     }
-  }
-  .m_fotter {
+    h1 {
+      font-size: 26px;
+    }
+    h2 {
+      font-size: 22px;
+    }
+    p, li {
+      line-height: 2.4;
+    }
+    p, ul {
+      margin: 30px 0;
+    }
     a {
-      color: #fff;
+      color: #1D8BF1;
+      &:hover {
+        opacity: .8;
+      }
+    }
+    .m_fotter {
+      a {
+        color: #fff;
+      }
     }
   }
 }
