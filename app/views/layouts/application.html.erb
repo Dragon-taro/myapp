@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
     <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body class="<%= params[:controller].gsub('/', ' ') %> <%= params[:action] %>">

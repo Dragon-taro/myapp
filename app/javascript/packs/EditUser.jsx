@@ -168,8 +168,10 @@ class EditUser extends React.Component {
               <h2>
                 <img src={this.state.user.image} />
                 <EditZone {...this.state} name='name' value={this.state.user.name} handleSave={this.handleSave.bind(this)} onChange={this.handleChange.bind(this)} type='text'/>
-                <span className="displayMD">師匠 {this.state.user.master_count}人 </span>
-                <span className="displayMD">弟子 {this.state.user.disciple_count}人</span>
+                <div className='showDisplayMDWrapper'>
+                  <span className="displayMD">師匠 {this.state.user.master_count}人 </span>
+                  <span className="displayMD">弟子 {this.state.user.disciple_count}人</span>
+                </div>
               </h2>
 
               <ul className='displayTable'>

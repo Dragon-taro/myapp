@@ -4,15 +4,15 @@
     <%= render "users_list", users: @top_users %>
   </div>
   <div class="m_showAndSearchZone">
+    <div class="rightContent">
+      <h2>検索</h2>
+      <div id="SearchForm"></div>
+    </div>
     <div class="leftContent">
       <h2>最近の師匠</h2>
       <div class="m_normalUsers">
         <%= render "users_list", users: @users %>
       </div>
-    </div>
-    <div class="rightContent">
-      <h2>検索</h2>
-      <div id="SearchForm"></div>
     </div>
   </div>
 </div>

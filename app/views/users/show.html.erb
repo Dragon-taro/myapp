@@ -2,8 +2,10 @@
   <h2>
     <img src="<%= @user.image %>" />
     <%= @user.name %>
-    <span class="displayMD">師匠 <%= @user.master_count %>人</span>
-    <span class="displayMD">弟子 <%= @user.disciple_count %>人</span>
+    <div class="showDisplayMDWrapper">
+      <span class="displayMD">師匠 <%= @user.master_count %>人</span>
+      <span class="displayMD">弟子 <%= @user.disciple_count %>人</span>
+    </div>
   </h2>
 
   <ul class="displayTable">

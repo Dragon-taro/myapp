@@ -1,10 +1,21 @@
 .m_showAndSearchZone {
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   .leftContent {
     width: 65%;
   }
   .rightContent {
     width: 30%;
+  }
+  @media screen and (max-width: 900px) {
+    justify-content: space-between;
+    flex-direction: column;
+    .leftContent {
+      width: 100%;
+    }
+    .rightContent {
+      width: 100%;
+    }
   }
 }

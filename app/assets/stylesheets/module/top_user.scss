@@ -4,4 +4,11 @@
   .m_userList {
     width: 30%;
   }
+  @media screen and (max-width: 900px) {
+    display: block;
+    .m_userList {
+      width: 100%;
+      margin: 30px 0;
+    }
+  }
 }

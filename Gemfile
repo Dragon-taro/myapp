@@ -71,3 +71,4 @@ gem 'omniauth-twitter'
 
 gem "js-routes"
 gem 'gon'
+# gem "font-awesome-rails"

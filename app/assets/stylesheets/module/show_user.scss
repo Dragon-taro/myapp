@@ -24,34 +24,58 @@
     }
   }
 
-  .displayMD {
-    font-size: 14px;
-    font-weight: normal;
-    color: #888;
+  .showDisplayMDWrapper {
+    display: inline-block;
+    @media screen and (max-width: 640px) {
+      display: block;
+      margin-left: 58px;
+      margin-top: -14px;
+    }
+    .displayMD {
+      font-size: 14px;
+      font-weight: normal;
+      color: #888;
+    }
   }
 
   .displayTable {
     > li {
       border-bottom: 1px solid #ddd;
     }
+
     .th, .td {
-      float: left;
-      padding: 10px;
+      margin: 10px 0;
     }
 
     .th {
-      width: 150px;
+      width: 100%;
       color: #888;
     }
 
     .td {
-      width: 800px;
+      width: 100%;
       color: #666;
       .skillRow {
         margin-bottom: 10px;
         &:last-child {
           margin: 0;
         }
+      }
+    }
+
+    @media screen and (min-width: 950px) {
+      .th, .td {
+        float: left;
+      }
+
+      .th {
+        max-width: 150px;
+        width: 16%;
+      }
+
+      .td {
+        max-width: 800px;
+        width: 84%;
       }
     }
   }
