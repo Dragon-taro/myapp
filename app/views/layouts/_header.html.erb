@@ -1,0 +1,45 @@
+<header class="clearFix m_header">
+  <div class="innerWrapper">
+    <div class="title">
+      <a href="/">
+        SHISHO
+      </a>
+    </div>
+    <nav>
+      <% if user_signed_in? %>
+      <div class="pcZone">
+        <ul class="menuWrapper pc">
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'gMenu' %></li>
+          <li class="gMenu message">
+            メッセージ
+            <ul class="dropdownMenu">
+              <li>
+                <%= link_to '師匠', messages_masters_path(), class: 'dropdownContent' %>
+              </li>
+              <li>
+                <%= link_to '弟子', messages_disciples_path(), class: 'dropdownContent' %>
+              </li>
+            </ul>
+          </li>
+          <li><%= link_to 'マイページ', mypage_path(), class: 'gMenu' %></li>
+          <li><%= link_to '師匠を探す', root_path(), class: 'gMenu' %></li>
+        </ul>
+      </div>
+
+      <div class="spZone" id="jsMenuWrapper">
+        <div class="menuButton" id="js_headerMenuOpen"><i class="fa fa-bars fa-2x"></i></div>
+        <ul class="menuWrapper sp">
+          <li><%= link_to '師匠を探す', root_path() %></li>
+          <li><%= link_to 'マイページ', mypage_path() %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        </ul>
+        <div class="overRayer" id="js_headerMenuClose"></div>
+      </div>
+
+      <% else %>
+        <div class="loginButton"><%= link_to 'ログイン', new_user_session_path, class: 'gMenu' %></div>
+      <% end %>
+    </nav>
+
+  </div>
+</header>

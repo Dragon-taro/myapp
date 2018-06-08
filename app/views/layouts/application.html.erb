@@ -12,16 +12,7 @@
   </head>
 
   <body class="<%= params[:controller].gsub('/', ' ') %> <%= params[:action] %>">
-    <header class="clearFix m_header">
-      <div class="innerWrapper">
-        <div class="title">
-          <a href="/">
-            SHISHO
-          </a>
-        </div>
-        <%= render "layouts/navigation" %>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
     <%= yield %>
     <% if "#{params[:controller]}" != "messages"%>
     <footer class="m_fotter">
