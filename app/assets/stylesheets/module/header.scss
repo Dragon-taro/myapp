@@ -72,6 +72,9 @@
       &.active {
         .menuWrapper {
           right: 0;
+          a {
+            color: #333;
+          }
         }
         .overRayer {
           position: fixed;
